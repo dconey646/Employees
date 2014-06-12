@@ -12,6 +12,7 @@ public class mainmenu extends JFrame implements ActionListener
 {
 	JFrame myframe;
 	JPanel mypanel;
+	JButton viewAllButton;
 	JButton addButton;
 	JButton modifyButton;
 	JButton deleteButton;
@@ -20,6 +21,9 @@ public class mainmenu extends JFrame implements ActionListener
 	{
 		myframe = new JFrame("Welcome");
 		mypanel = new JPanel();
+		
+		viewAllButton = new JButton("View All");
+		viewAllButton.addActionListener(this);
 		
 		addButton = new JButton("Add");
 		addButton.addActionListener(this);
@@ -30,50 +34,70 @@ public class mainmenu extends JFrame implements ActionListener
 		deleteButton = new JButton("Delete");
 		deleteButton.addActionListener(this);
 		
-		myframe.setLayout(new GridLayout(3, 0, 50, 50));
-		mypanel.setLayout(new GridLayout(3, 0, 50, 50));
+		myframe.setLayout(new GridLayout(4, 0, 50, 50));
+		mypanel.setLayout(new GridLayout(4, 0, 50, 50));
 		
 		myframe.add(mypanel);
+		mypanel.add(viewAllButton);
 		mypanel.add(addButton);
 		mypanel.add(modifyButton);
 		mypanel.add(deleteButton);
 		this.add(mypanel);
 	}
-	
-	public static void main(String[] args) 
-	{
-		mainmenu first = new mainmenu();
-		
-		first.setTitle("Welcome");
-		first.setSize(500,500);
-		first.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		first.setVisible(true);
-		first.setLocationRelativeTo(null);
-	}
 
 	@Override
 	public void actionPerformed(ActionEvent event) 
 	{
+		if(event.getSource() == viewAllButton)
+		{
+			setVisible(false);
+			
+			viewall runViewAll = new viewall();
+			
+			runViewAll.setTitle("View All");
+			runViewAll.setSize(500,500);
+			runViewAll.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			runViewAll.setVisible(true);
+			runViewAll.setLocationRelativeTo(null);
+		}
+		
 		if(event.getSource() == addButton)
 		{
-			System.out.println("Add");
 			setVisible(false);
+			
 			add runAdd = new add();
+			
+			runAdd.setTitle("Add");
+			runAdd.setSize(500,500);
+			runAdd.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			runAdd.setVisible(true);
+			runAdd.setLocationRelativeTo(null);
 		}
 		
 		if(event.getSource() == modifyButton)
 		{
-			System.out.println("Modify");
 			setVisible(false);
+			
 			modify runModify = new modify();
+			
+			runModify.setTitle("Modify");
+			runModify.setSize(500,500);
+			runModify.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			runModify.setVisible(true);
+			runModify.setLocationRelativeTo(null);
 		}
 		
 		if(event.getSource() == deleteButton)
 		{
-			System.out.println("Delete");
 			setVisible(false);
+			
 			delete runDelete = new delete();
+			
+			runDelete.setTitle("Delete");
+			runDelete.setSize(500,500);
+			runDelete.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			runDelete.setVisible(true);
+			runDelete.setLocationRelativeTo(null);
 		}
 	}
-
 }
