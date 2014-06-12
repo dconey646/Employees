@@ -1,5 +1,6 @@
 package menusystem;
 
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -26,13 +27,18 @@ public class viewall extends JFrame implements ActionListener
 		myframe = new JFrame("View All");
 		mypanel = new JPanel();
 		
-		textLabel = new JLabel("Hello");
+		textLabel = new JLabel(DBaccess.viewAll());
 		
 		cancelButton = new JButton("Cancel");
+		
+		myframe.setLayout(new GridLayout(5, 0, 50, 50));
+		mypanel.setLayout(new GridLayout(6, 0, 50, 50));
+		myframe.setLocationRelativeTo(null);
 		
 		myframe.add(mypanel);
 		mypanel.add(textLabel);
 		mypanel.add(cancelButton);
+		this.add(mypanel);
 	}
 	
 
