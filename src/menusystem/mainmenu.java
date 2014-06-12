@@ -10,7 +10,6 @@ import javax.swing.JPanel;
 
 public class mainmenu extends JFrame implements ActionListener
 {
-
 	JFrame myframe;
 	JPanel mypanel;
 	JButton addButton;
@@ -33,7 +32,6 @@ public class mainmenu extends JFrame implements ActionListener
 		
 		myframe.setLayout(new GridLayout(3, 0, 50, 50));
 		mypanel.setLayout(new GridLayout(3, 0, 50, 50));
-		myframe.setLocationRelativeTo(null);
 		
 		myframe.add(mypanel);
 		mypanel.add(addButton);
@@ -50,6 +48,7 @@ public class mainmenu extends JFrame implements ActionListener
 		first.setSize(500,500);
 		first.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		first.setVisible(true);
+		first.setLocationRelativeTo(null);
 	}
 
 	@Override
@@ -58,18 +57,21 @@ public class mainmenu extends JFrame implements ActionListener
 		if(event.getSource() == addButton)
 		{
 			System.out.println("Add");
+			setVisible(false);
 			add runAdd = new add();
 		}
 		
 		if(event.getSource() == modifyButton)
 		{
 			System.out.println("Modify");
+			setVisible(false);
 			modify runModify = new modify();
 		}
 		
 		if(event.getSource() == deleteButton)
 		{
 			System.out.println("Delete");
+			setVisible(false);
 			delete runDelete = new delete();
 		}
 	}
