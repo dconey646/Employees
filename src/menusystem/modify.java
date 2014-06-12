@@ -28,14 +28,12 @@ public class modify extends JFrame implements ActionListener
 	
 	JTextField fnameText;
 	JTextField snameText;
-	JTextField dobText;
 	JTextField salaryText;
 	JTextField idText;
 	
 	private String id;
 	private String fname;
 	private String sname;
-	private String dob;
 	private String salary;
 	
 	public modify()
@@ -46,7 +44,6 @@ public class modify extends JFrame implements ActionListener
 		
 		fnameLabel = new JLabel("First Name:");
 		snameLabel = new JLabel("Surname:");
-		dobLabel = new JLabel("Date Of Birth:");
 		salaryLabel = new JLabel("Salary:");
 		idLabel = new JLabel("ID:");
 		
@@ -58,7 +55,6 @@ public class modify extends JFrame implements ActionListener
 		
 		fnameText = new JTextField();
 		snameText = new JTextField();
-		dobText = new JTextField();
 		salaryText = new JTextField();
 		idText = new JTextField();
 		
@@ -73,8 +69,6 @@ public class modify extends JFrame implements ActionListener
 		mypanel.add(fnameText);
 		mypanel.add(snameLabel);
 		mypanel.add(snameText);
-		mypanel.add(dobLabel);
-		mypanel.add(dobText);
 		mypanel.add(salaryLabel);
 		mypanel.add(salaryText);
 		mypanel.add(modifyButton);
@@ -87,6 +81,8 @@ public class modify extends JFrame implements ActionListener
 	{
 		if(event.getSource() == modifyButton)
 		{
+			setVisible(false);
+			
 			String text = idText.getText();
 			setId(text);
 			
@@ -101,11 +97,6 @@ public class modify extends JFrame implements ActionListener
 			setSname(text);
 			
 			System.out.println(getSname());
-			
-			text = dobText.getText();
-			setDob(text);
-			
-			System.out.println(getDob());
 			
 			text = salaryText.getText();
 			setSalary(text);
@@ -153,16 +144,6 @@ public class modify extends JFrame implements ActionListener
 	public void setSname(String sname) 
 	{
 		this.sname = sname;
-	}
-
-	public String getDob() 
-	{
-		return dob;
-	}
-
-	public void setDob(String dob) 
-	{
-		this.dob = dob;
 	}
 
 	public String getSalary() 

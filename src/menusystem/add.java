@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import employee.DBaccess;
+
 public class add extends JFrame implements ActionListener
 {	
 	JFrame myframe;
@@ -18,7 +20,6 @@ public class add extends JFrame implements ActionListener
 	
 	JLabel fnameLabel;
 	JLabel snameLabel;
-	JLabel dobLabel;
 	JLabel salaryLabel;
 	
 	JButton addButton;
@@ -26,13 +27,11 @@ public class add extends JFrame implements ActionListener
 	
 	JTextField fnameText;
 	JTextField snameText;
-	JTextField dobText;
 	JTextField salaryText;
 	
 	private String fname;
 	private String sname;
-	private String dob;
-	private String salary;
+	private int salary;
 	
 	public add()
 	{
@@ -41,7 +40,6 @@ public class add extends JFrame implements ActionListener
 		
 		fnameLabel = new JLabel("First Name:");
 		snameLabel = new JLabel("Surname:");
-		dobLabel = new JLabel("Date Of Birth:");
 		salaryLabel = new JLabel("Salary:");
 		
 		addButton = new JButton("Add");
@@ -53,7 +51,6 @@ public class add extends JFrame implements ActionListener
 		fnameText.addActionListener(this);
 		snameText = new JTextField();
 		fnameText.addActionListener(this);
-		dobText = new JTextField();
 		fnameText.addActionListener(this);
 		salaryText = new JTextField();
 		fnameText.addActionListener(this);
@@ -67,8 +64,6 @@ public class add extends JFrame implements ActionListener
 		mypanel.add(fnameText);
 		mypanel.add(snameLabel);
 		mypanel.add(snameText);
-		mypanel.add(dobLabel);
-		mypanel.add(dobText);
 		mypanel.add(salaryLabel);
 		mypanel.add(salaryText);
 		mypanel.add(addButton);
@@ -81,25 +76,18 @@ public class add extends JFrame implements ActionListener
 	{
 		if(event.getSource() == addButton)
 		{
+			setVisible(false);
+			
 			String text = fnameText.getText();
 			setFname(text);
-			
-			System.out.println(getFname());
 			
 			text = snameText.getText();
 			setSname(text);
 			
-			System.out.println(getSname());
+			int num = Integer.parseInt(salaryText.getText());
+			setSalary(num);
 			
-			text = dobText.getText();
-			setDob(text);
-			
-			System.out.println(getDob());
-			
-			text = salaryText.getText();
-			setSalary(text);
-			
-			System.out.println(getSalary());
+			DBaccess.addRecord(getFname(), getSname(), getSalary());
 		}
 		
 		if(event.getSource() == cancelButton)
@@ -135,22 +123,12 @@ public class add extends JFrame implements ActionListener
 		this.sname = sname;
 	}
 
-	public String getDob() 
-	{
-		return dob;
-	}
-
-	public void setDob(String dob) 
-	{
-		this.dob = dob;
-	}
-
-	public String getSalary() 
+	public int getSalary() 
 	{
 		return salary;
 	}
 
-	public void setSalary(String salary) 
+	public void setSalary(int salary) 
 	{
 		this.salary = salary;
 	}

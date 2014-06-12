@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import employee.DBaccess;
+
 public class delete extends JFrame implements ActionListener
 {
 
@@ -32,7 +34,7 @@ public class delete extends JFrame implements ActionListener
 	JTextField salaryText;
 	JTextField idText;
 	
-	private String id;
+	private int id;
 	
 	public delete()
 	{
@@ -67,10 +69,12 @@ public class delete extends JFrame implements ActionListener
 	{
 		if(event.getSource() == deleteButton)
 		{
-			String text = idText.getText();
-			setId(text);
+			setVisible(false);
 			
-			System.out.println(getId());
+			int num =  Integer.parseInt(idText.getText());
+			setId(num);
+			
+			DBaccess.deleteRecord(getId());
 		}
 		
 		if(event.getSource() == cancelButton)
@@ -85,12 +89,12 @@ public class delete extends JFrame implements ActionListener
 		}	
 	}
 
-	public String getId() 
+	public int getId() 
 	{
 		return id;
 	}
 
-	public void setId(String id) 
+	public void setId(int id) 
 	{
 		this.id = id;
 	}

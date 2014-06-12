@@ -5,8 +5,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTable;
+import javax.swing.JTextArea;
+
+import employee.DBaccess;
 
 public class viewall extends JFrame implements ActionListener
 {
@@ -16,20 +19,20 @@ public class viewall extends JFrame implements ActionListener
 	
 	JButton cancelButton;
 	
-	JTable mytable;
+	JLabel textLabel;
 	
 	public viewall()
 	{
 		myframe = new JFrame("View All");
 		mypanel = new JPanel();
 		
-		mytable = new JTable();
+		textLabel = new JLabel("Hello");
 		
 		cancelButton = new JButton("Cancel");
 		
 		myframe.add(mypanel);
-		mypanel.add(mytable);
-		
+		mypanel.add(textLabel);
+		mypanel.add(cancelButton);
 	}
 	
 
