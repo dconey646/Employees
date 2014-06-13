@@ -75,6 +75,14 @@ public class delete extends JFrame implements ActionListener
 			setId(num);
 			
 			DBaccess.deleteRecord(getId());
+			
+			mainmenu runMainMenu = new mainmenu();
+			
+			runMainMenu.setTitle("Welcome");
+			runMainMenu.setSize(500,500);
+			runMainMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			runMainMenu.setVisible(true);
+			runMainMenu.setLocationRelativeTo(null);
 		}
 		
 		if(event.getSource() == cancelButton)
