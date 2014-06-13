@@ -4,8 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.logging.Logger;
 
 public class DBaccess {
+	protected static Logger log = Logger.getLogger(Employee.class.getName());
 	
 	public static String viewAll()
 	{ 
