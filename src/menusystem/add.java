@@ -36,18 +36,18 @@ public class add extends JFrame implements ActionListener
 	
 	private String fname;	// declare fname string to hold first name
 	private String sname;	// declare sname string to hold surname
-	private int salary;	// declare salary int to hold the employee salary
+	private int salary;		// declare salary int to hold the employee salary
 	
 	public add()
 	{
 		myframe = new JFrame("Add");	// naming the frame 'add'
-		mypanel = new JPanel();
+		mypanel = new JPanel();			// creating an instance of JPanel
 		
 		fnameLabel = new JLabel("First Name:");	// making the label say first name
 		snameLabel = new JLabel("Surname:");	// making the label say surname
 		salaryLabel = new JLabel("Salary:");	// making the label say salary
 		
-		addButton = new JButton("Add");	// making a button called add
+		addButton = new JButton("Add");		// making a button called add
 		addButton.addActionListener(this);	// listening for the button to be clicked
 		
 		cancelButton = new JButton("Cancel");	// making a button called cancel
@@ -64,18 +64,18 @@ public class add extends JFrame implements ActionListener
 		
 		myframe.setLayout(new GridLayout(5, 0, 50, 50));	// setting the grid layout
 		mypanel.setLayout(new GridLayout(5, 0, 50, 50));	// setting the grid layout
-		myframe.setLocationRelativeTo(null);	// setting the position of the frame
+		myframe.setLocationRelativeTo(null);				// setting the position of the frame
 		
-		myframe.add(mypanel);	// adding panel to frame
+		myframe.add(mypanel);		// adding panel to frame
 		mypanel.add(fnameLabel);	// adding fname label to panel
-		mypanel.add(fnameText);	// adding fname text to panel
+		mypanel.add(fnameText);		// adding fname text to panel
 		mypanel.add(snameLabel);	// adding sname label to panel
-		mypanel.add(snameText);	
-		mypanel.add(salaryLabel);
-		mypanel.add(salaryText);
-		mypanel.add(addButton);
-		mypanel.add(cancelButton);
-		this.add(mypanel);
+		mypanel.add(snameText);		//	adding sname text to panel
+		mypanel.add(salaryLabel);	//	adding salary label to panel
+		mypanel.add(salaryText);	//	adding salary text to panel
+		mypanel.add(addButton);		//	adding add button to panel
+		mypanel.add(cancelButton);	// 	adding cancel button to panel
+		this.add(mypanel);			//	adding panel
 	}
 	
 	@Override

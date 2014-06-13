@@ -11,16 +11,16 @@ public class DBaccess {
 	{ 
 		String message = " ";
 		try{
-		Class driver = Class.forName("com.mysql.jdbc.Driver");
-		Connection c = DriverManager.getConnection("jdbc:mysql://192.168.1.164/HRdatabase", "mrjava", "password");
-		System.out.println("Connection successful!");
-		Statement st = c.createStatement();
-		ResultSet rs = st.executeQuery("SELECT * FROM tbl_stdEmployee");
-		while(rs.next())
-		{
-			message += ("Employee ID: " + rs.getInt("std_ID") + "\tFirst Name " + rs.getString("std_FNAME") + 	"\tLast Name: " + rs.getString("std_LNAME") + "\n");
-		}
-		return message;
+			Class driver = Class.forName("com.mysql.jdbc.Driver");
+			Connection c = DriverManager.getConnection("jdbc:mysql://192.168.1.164/HRdatabase", "mrjava", "password");
+			System.out.println("Connection successful!");
+			Statement st = c.createStatement();
+			ResultSet rs = st.executeQuery("SELECT * FROM tbl_stdEmployee");
+			while(rs.next())
+			{
+				message += ("Employee ID: " + rs.getInt("std_ID") + "\tFirst Name " + rs.getString("std_FNAME") + 	"\tLast Name: " + rs.getString("std_LNAME") + "\n");
+			}
+			return message;
 	} catch (Exception e) {
 		System.out.println(e.getMessage());
 	}
