@@ -6,8 +6,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import employee.DBaccess;
@@ -20,14 +20,14 @@ public class viewall extends JFrame implements ActionListener
 	
 	JButton cancelButton;
 	
-	JLabel textLabel;
+	JTextArea textArea;
 	
 	public viewall()
 	{
 		myframe = new JFrame("View All");
 		mypanel = new JPanel();
 		
-		textLabel = new JLabel(DBaccess.viewAll());
+		textArea = new JTextArea(DBaccess.viewAll());
 		
 		cancelButton = new JButton("Cancel");
 		
@@ -36,7 +36,7 @@ public class viewall extends JFrame implements ActionListener
 		myframe.setLocationRelativeTo(null);
 		
 		myframe.add(mypanel);
-		mypanel.add(textLabel);
+		mypanel.add(textArea);
 		mypanel.add(cancelButton);
 		this.add(mypanel);
 	}

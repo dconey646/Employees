@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import employee.DBaccess;
+
 public class modify extends JFrame implements ActionListener
 {
 
@@ -31,10 +33,10 @@ public class modify extends JFrame implements ActionListener
 	JTextField salaryText;
 	JTextField idText;
 	
-	private String id;
+	private int id;
 	private String fname;
 	private String sname;
-	private String salary;
+	private int salary;
 	
 	public modify()
 	{
@@ -83,25 +85,20 @@ public class modify extends JFrame implements ActionListener
 		{
 			setVisible(false);
 			
-			String text = idText.getText();
-			setId(text);
+			int num = Integer.parseInt(idText.getText());
+			setId(num);
 			
-			System.out.println(getId());
-			
-			text = fnameText.getText();
+			String text = fnameText.getText();
 			setFname(text);
-			
-			System.out.println(getFname());
 			
 			text = snameText.getText();
 			setSname(text);
 			
-			System.out.println(getSname());
+			num = Integer.parseInt(salaryText.getText());
+			setSalary(num);
 			
-			text = salaryText.getText();
-			setSalary(text);
 			
-			System.out.println(getSalary());
+			DBaccess.modifyRecord(getId(), getFname(), getSname(), getSalary());
 		}
 		
 		if(event.getSource() == cancelButton)
@@ -116,12 +113,12 @@ public class modify extends JFrame implements ActionListener
 		}
 	}
 	
-	public String getId() 
+	public int getId() 
 	{
 		return id;
 	}
 
-	public void setId(String id) 
+	public void setId(int id) 
 	{
 		this.id = id;
 	}
@@ -146,12 +143,12 @@ public class modify extends JFrame implements ActionListener
 		this.sname = sname;
 	}
 
-	public String getSalary() 
+	public int getSalary() 
 	{
 		return salary;
 	}
 
-	public void setSalary(String salary) 
+	public void setSalary(int salary) 
 	{
 		this.salary = salary;
 	}
