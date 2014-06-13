@@ -18,7 +18,7 @@ public class DBaccess {
 		ResultSet rs = st.executeQuery("SELECT * FROM tbl_stdEmployee");
 		while(rs.next())
 		{
-			message = ("Employee ID: " + rs.getInt("std_ID") + " First Name " + rs.getString("std_FNAME") + 	" Last Name: " + rs.getString("std_LNAME") + "\n");
+			message += ("Employee ID: " + rs.getInt("std_ID") + " First Name " + rs.getString("std_FNAME") + 	" Last Name: " + rs.getString("std_LNAME") + "\n");
 		}
 		return message;
 	} catch (Exception e) {
