@@ -17,7 +17,7 @@ import employee.DBaccess;
 public class viewall extends JFrame implements ActionListener
 {
 	JFrame myframe;
-	
+
 	JPanel mypanel;
 	
 	JButton cancelButton;
@@ -50,7 +50,6 @@ public class viewall extends JFrame implements ActionListener
 		mypanel.add(cancelButton);
 		this.add(mypanel);
 	}
-	
 
 	@Override
 	public void actionPerformed(ActionEvent event) 
@@ -60,11 +59,16 @@ public class viewall extends JFrame implements ActionListener
 			System.out.println("Cancel");
 			mainmenu runMainMenu = new mainmenu();
 			
-			runMainMenu.setTitle("Welcome");
-			runMainMenu.setSize(500,500);
-			runMainMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			runMainMenu.setVisible(true);
-			runMainMenu.setLocationRelativeTo(null);
+			this.launchWindow(runMainMenu, "Welcome");
 		}
+	}
+	
+	private void launchWindow(JFrame window, String name) 
+	{
+		window.setTitle(name);
+		window.setSize(500,500);
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setVisible(true);
+		window.setLocationRelativeTo(null);
 	}
 }

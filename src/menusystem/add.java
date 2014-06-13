@@ -98,22 +98,14 @@ public class add extends JFrame implements ActionListener
 			
 			mainmenu runMainMenu = new mainmenu();
 			
-			runMainMenu.setTitle("Welcome");
-			runMainMenu.setSize(500,500);
-			runMainMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			runMainMenu.setVisible(true);
-			runMainMenu.setLocationRelativeTo(null);
+			this.launchWindow(runMainMenu, "Welcome");
 		}
 		
 		if(event.getSource() == cancelButton)
 		{
 			mainmenu runMainMenu = new mainmenu();
 			
-			runMainMenu.setTitle("Welcome");
-			runMainMenu.setSize(500,500);
-			runMainMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			runMainMenu.setVisible(true);
-			runMainMenu.setLocationRelativeTo(null);
+			this.launchWindow(runMainMenu, "Welcome");
 		}
 		
 	}
@@ -148,4 +140,12 @@ public class add extends JFrame implements ActionListener
 		this.salary = salary;
 	}
 	
+	private void launchWindow(JFrame window, String name) 
+	{
+		window.setTitle(name);
+		window.setSize(500,500);
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setVisible(true);
+		window.setLocationRelativeTo(null);
+	}
 }

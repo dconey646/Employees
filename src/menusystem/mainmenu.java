@@ -97,8 +97,9 @@ public class mainmenu extends JFrame implements ActionListener
 		}
 	}
 	
-	private void launchWindow(JFrame window, String name) {
-		window.setTitle("Delete");
+	private void launchWindow(JFrame window, String name) 
+	{
+		window.setTitle(name);
 		window.setSize(500,500);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setVisible(true);

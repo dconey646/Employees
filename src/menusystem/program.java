@@ -4,14 +4,19 @@ import javax.swing.JFrame;
 
 public class program 
 {
-	public static void main(String[] args) 
+	public static void main(String[] args)
 	{
-		mainmenu first = new mainmenu();
+		mainmenu runMainMenu = new mainmenu();
 		
-		first.setTitle("Welcome");
-		first.setSize(500,500);
-		first.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		first.setVisible(true);
-		first.setLocationRelativeTo(null);
+		launchWindow(runMainMenu, "Welcome");
+	}
+	
+	private static void launchWindow(JFrame window, String name) 
+	{
+		window.setTitle(name);
+		window.setSize(500,500);
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setVisible(true);
+		window.setLocationRelativeTo(null);
 	}
 }
