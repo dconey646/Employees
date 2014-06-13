@@ -14,56 +14,63 @@ import employee.DBaccess;
 
 public class add extends JFrame implements ActionListener
 {	
+	// declaring frame
 	JFrame myframe;
 	
+	// declaring panel
 	JPanel mypanel;
 	
+	// declaring labels
 	JLabel fnameLabel;
 	JLabel snameLabel;
 	JLabel salaryLabel;
 	
+	// declaring buttons
 	JButton addButton;
 	JButton cancelButton;
 	
+	// declaring text fields
 	JTextField fnameText;
 	JTextField snameText;
 	JTextField salaryText;
 	
-	private String fname;
-	private String sname;
-	private int salary;
+	private String fname;	// declare fname string to hold first name
+	private String sname;	// declare sname string to hold surname
+	private int salary;	// declare salary int to hold the employee salary
 	
 	public add()
 	{
-		myframe = new JFrame("Add");
+		myframe = new JFrame("Add");	// naming the frame 'add'
 		mypanel = new JPanel();
 		
-		fnameLabel = new JLabel("First Name:");
-		snameLabel = new JLabel("Surname:");
-		salaryLabel = new JLabel("Salary:");
+		fnameLabel = new JLabel("First Name:");	// making the label say first name
+		snameLabel = new JLabel("Surname:");	// making the label say surname
+		salaryLabel = new JLabel("Salary:");	// making the label say salary
 		
-		addButton = new JButton("Add");
-		addButton.addActionListener(this);
-		cancelButton = new JButton("Cancel");
-		cancelButton.addActionListener(this);
+		addButton = new JButton("Add");	// making a button called add
+		addButton.addActionListener(this);	// listening for the button to be clicked
+		
+		cancelButton = new JButton("Cancel");	// making a button called cancel
+		cancelButton.addActionListener(this);	// listening for the button to be clicked
 		
 		fnameText = new JTextField();
-		fnameText.addActionListener(this);
+		fnameText.addActionListener(this);	// listening for text entered
+		
 		snameText = new JTextField();
-		fnameText.addActionListener(this);
-		fnameText.addActionListener(this);
+		fnameText.addActionListener(this);	// listening for text entered
+		
 		salaryText = new JTextField();
-		fnameText.addActionListener(this);
+		fnameText.addActionListener(this);	// listening for text entered
 		
-		myframe.setLayout(new GridLayout(5, 0, 50, 50));
-		mypanel.setLayout(new GridLayout(5, 0, 50, 50));
-		myframe.setLocationRelativeTo(null);
+		myframe.setLayout(new GridLayout(5, 0, 50, 50));	// setting the grid layout
+		mypanel.setLayout(new GridLayout(5, 0, 50, 50));	// setting the grid layout
+		myframe.setLocationRelativeTo(null);	// setting the position of the frame
 		
-		myframe.add(mypanel);
-		mypanel.add(fnameLabel);
-		mypanel.add(fnameText);
-		mypanel.add(snameLabel);
-		mypanel.add(snameText);
+		myframe.add(mypanel);	// adding panel to frame
+		mypanel.add(fnameLabel);	// adding fname label to panel
+		mypanel.add(fnameText);	// adding fname text to panel
+		mypanel.add(snameLabel);	// adding sname label to panel
+		mypanel.add(snameText);	
 		mypanel.add(salaryLabel);
 		mypanel.add(salaryText);
 		mypanel.add(addButton);
@@ -88,6 +95,14 @@ public class add extends JFrame implements ActionListener
 			setSalary(num);
 			
 			DBaccess.addRecord(getFname(), getSname(), getSalary());
+			
+			mainmenu runMainMenu = new mainmenu();
+			
+			runMainMenu.setTitle("Welcome");
+			runMainMenu.setSize(500,500);
+			runMainMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			runMainMenu.setVisible(true);
+			runMainMenu.setLocationRelativeTo(null);
 		}
 		
 		if(event.getSource() == cancelButton)

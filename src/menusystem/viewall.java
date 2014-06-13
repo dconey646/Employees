@@ -1,11 +1,13 @@
 package menusystem;
 
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -21,22 +23,30 @@ public class viewall extends JFrame implements ActionListener
 	JButton cancelButton;
 	
 	JTextArea textArea;
-	
+
+	JScrollPane vertical;
+	 
 	public viewall()
 	{
 		myframe = new JFrame("View All");
 		mypanel = new JPanel();
 		
-		textArea = new JTextArea(DBaccess.viewAll());
+		setPreferredSize(new Dimension(200, 250));
+        textArea = new JTextArea(15, 15);
+
+        textArea = new JTextArea(DBaccess.viewAll());
+        
+        vertical = new JScrollPane(textArea);
+        vertical.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		
-		cancelButton = new JButton("Cancel");
+        cancelButton = new JButton("Cancel");	// making a button called cancel
+		cancelButton.addActionListener(this);	// listening for the button to be clicked
 		
-		myframe.setLayout(new GridLayout(5, 0, 50, 50));
-		mypanel.setLayout(new GridLayout(6, 0, 50, 50));
+		myframe.setLayout(new GridLayout(3, 0, 50, 50));
+		mypanel.setLayout(new GridLayout(3, 0, 50, 50));
 		myframe.setLocationRelativeTo(null);
-		
+		mypanel.add(vertical);
 		myframe.add(mypanel);
-		mypanel.add(textArea);
 		mypanel.add(cancelButton);
 		this.add(mypanel);
 	}

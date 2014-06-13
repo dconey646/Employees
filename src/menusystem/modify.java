@@ -99,6 +99,14 @@ public class modify extends JFrame implements ActionListener
 			
 			
 			DBaccess.modifyRecord(getId(), getFname(), getSname(), getSalary());
+			
+			mainmenu runMainMenu = new mainmenu();
+			
+			runMainMenu.setTitle("Welcome");
+			runMainMenu.setSize(500,500);
+			runMainMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			runMainMenu.setVisible(true);
+			runMainMenu.setLocationRelativeTo(null);
 		}
 		
 		if(event.getSource() == cancelButton)
