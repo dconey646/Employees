@@ -18,7 +18,7 @@ public class DBaccess {
 		ResultSet rs = st.executeQuery("SELECT * FROM tbl_stdEmployee");
 		while(rs.next())
 		{
-			message = ("Employee ID: " + rs.getInt("std_ID") + " First Name " + rs.getString("std_FNAME") + 	" Last Name: " + rs.getString("std_LNAME") + "\n");
+			message += ("Employee ID: " + rs.getInt("std_ID") + " First Name " + rs.getString("std_FNAME") + 	" Last Name: " + rs.getString("std_LNAME") + "\n");
 		}
 		return message;
 	} catch (Exception e) {
@@ -41,7 +41,7 @@ public class DBaccess {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-}
+	}
 	
 	public static void deleteRecord(int empID)
 	{
@@ -52,6 +52,22 @@ public class DBaccess {
 			System.out.println("Connection successful!");
 			Statement st = c.createStatement();
 			String sql = ("DELETE FROM tbl_stdEmployee WHERE std_ID = " + empID);
+			System.out.println(sql);
+			st.executeUpdate(sql);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public static void modifyRecord(int empID, String fName, String lName, int salary)
+	{
+		
+		try{
+			Class driver = Class.forName("com.mysql.jdbc.Driver");
+			Connection c = DriverManager.getConnection("jdbc:mysql://192.168.1.141/HRdatabase", "mrjava", "password");
+			System.out.println("Connection successful!");
+			Statement st = c.createStatement();
+			String sql = ("UPDATE tbl_stdEmployee SET std_FNAME ='" + fName + "', std_LNAME='" + lName + "', std_SALARY=" + salary + "WHERE std_id=" + empID);
 			System.out.println(sql);
 			st.executeUpdate(sql);
 		} catch (Exception e) {
